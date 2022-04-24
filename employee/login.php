@@ -1,6 +1,6 @@
 <?php
     //gets db connection info
-    require_once './scripts/connectToDatabase.php';
+    require_once '../scripts/connectToDatabase.php';
     
     session_start();
     
@@ -33,13 +33,13 @@
 <html lang="en">
     <head>
         <title>Office Supply Emporium</title>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="../style.css">
     </head>
     
     <body>
 
         <center>
-            <h1><center>Customer Login</center></h1>
+            <h1><center>Employee Login</center></h1>
             <center><div style='color: red;'><?php echo $notice; ?></div></center>
             <center>Enter your email and password:</center>
             <form action='./scripts/login.php' method='post'>
@@ -51,7 +51,7 @@
                 <center>
                     Don't have an account yet? <a class="link" href="register.php">Create an account</a>
                     <br>
-                    Are you an employee? <a class="link" href="./employee/login.php">Employee Login</a>
+                    Not an employee? <a class="link" href="../index.php">Customer Login</a>
                 </center>
             </div>
         </center>

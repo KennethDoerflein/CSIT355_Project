@@ -1,6 +1,6 @@
 <?php
     //gets db connection info
-    require_once './scripts/connectToDatabase.php';
+    require_once '../scripts/connectToDatabase.php';
     //gets session info
     session_start();
     if($_SESSION['registration'] == 'emailTaken'){
@@ -35,7 +35,7 @@
 <html lang="en">
     <head>
         <title>Office Supply Emporium</title>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="../style.css">
     </head>
     
     <body>
@@ -50,7 +50,7 @@
             a:hover{
                 color: blue;
             }
-            .sButton {
+            .sButton {r
                 border: none;
                 text-decoration: none;
                 background-color: black;
@@ -72,7 +72,7 @@
             <h1><center>Register</center></h1>
             <center><div style='color: red;'><?php echo $notice; ?></div></center>
             <center>Fill in your information below:</center>
-            <form action='./scripts/registerAcct.php' method='post'>
+            <form action='./scripts/createAccount.php' method='post'>
                 <div class="login-form" id="login-form">
                     <div><input type="email" name="email" id="email-field" placeholder="Email" required></div>
                     <div><input type="password" name="password" placeholder="Password" onChange="checkPass()" minlength="8" required></div>
@@ -100,7 +100,7 @@
                 </div>
             </form>
             <div class="login">
-                Already have an account? <a class="link" href="index.php">Login</a>
+                Already have an account? <a class="link" href="login.php">Login</a>
             </div>
         </center>
     </body>

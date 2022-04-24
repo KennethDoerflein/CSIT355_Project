@@ -34,8 +34,8 @@
     
     <body>
         <div class="topnav">
-          <a class="active" href="#">Home</a>
-          <a href="products.php">Products</a>
+          <a  href="homepage.php">Home</a>
+          <a class="active" href="products.php">Products</a>
           <a class="right" href="./scripts/logout.php">Logout</a>
           <a class="right" href="account.php">Account</a>
           <a class="right" href="cart.php">Cart</a>
@@ -50,7 +50,7 @@
           
         </div>
         
-        Homepage
+        Products
         <br>
         <?php
             echo "Account Number of Person Logged in: " .$_SESSION['account'] ;

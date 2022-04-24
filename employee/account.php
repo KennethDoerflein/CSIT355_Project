@@ -1,6 +1,6 @@
 <?php
     // connect to the database
-    require_once './scripts/connectToDatabase.php';
+    require_once '../scripts/connectToDatabase.php';
         
         // start session
     session_start();
@@ -13,15 +13,7 @@
         $database->close();
         exit();
     }
-    
-    if(isset($_SESSION["active"])){
-        if(time()-$_SESSION["login_time_stamp"] > 1800){
-            session_unset();
-            session_destroy();
-            header("Location: ./index.php");
-        }
-    }
-    
+
     //closes connection
     $database->close();
 ?>
@@ -29,28 +21,20 @@
 <html lang="en">
     <head>
         <title>Office Supply Emporium</title>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="../style.css">
     </head>
     
     <body>
         <div class="topnav">
-          <a class="active" href="#">Home</a>
-          <a href="products.php">Products</a>
+          <a href="./homepage.php">Home</a>
           <a class="right" href="./scripts/logout.php">Logout</a>
-          <a class="right" href="account.php">Account</a>
-          <a class="right" href="cart.php">Cart</a>
-          <form action="#" method="post">
-              <div class="search-container">
-                  <button type="submit">Submit</button>
-                  <input type="text" placeholder="Search.." name="search">
-              </div>
-              
-          </form>
+          <a class="right active" href="./account.php">Account</a>
+        
           
           
         </div>
         
-        Homepage
+        Account
         <br>
         <?php
             echo "Account Number of Person Logged in: " .$_SESSION['account'] ;
