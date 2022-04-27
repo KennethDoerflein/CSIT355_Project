@@ -81,7 +81,11 @@
             }else{
                 for($i = 0; $i < $numOfItemsInCart ; $i++){
                     echo '<div class="productCard">';
+                    echo '<div><img src="'.$currentProduct['image'].'" style="width:25%"></div>';
                     echo '<div>'.$currentProduct['productID'].'</div>';
+                    echo '<div>'.$currentProduct['name'].'</div>';
+                    echo '<div>'.$currentProduct['quantity'].'</div>';
+                    echo '<div>'.$currentProduct['price'].'</div>';
                     echo '</div>';
                     $currentProduct = $products->fetch_assoc();
                 }
