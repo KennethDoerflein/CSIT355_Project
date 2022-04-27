@@ -748,3 +748,37 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 91
+[27-Apr-2022 06:54:55 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 47
+[27-Apr-2022 06:54:55 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 48
+[27-Apr-2022 19:24:58 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 47
+[27-Apr-2022 19:24:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 48
+[27-Apr-2022 19:34:22 UTC] PHP Parse error:  syntax error, unexpected '';' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 95
+[27-Apr-2022 19:34:29 UTC] PHP Parse error:  syntax error, unexpected '';' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 89
+[27-Apr-2022 19:34:30 UTC] PHP Parse error:  syntax error, unexpected '';' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 89
+[27-Apr-2022 19:34:30 UTC] PHP Parse error:  syntax error, unexpected '';' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 89
+[27-Apr-2022 19:55:12 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 47
+[27-Apr-2022 19:55:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 48
+[27-Apr-2022 20:28:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 55
+[27-Apr-2022 20:28:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php:56
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/cart.php on line 56
+[27-Apr-2022 20:40:09 UTC] PHP Warning:  require_once(../scripts/connectToDatabase.php): failed to open stream: No such file or directory in /home/doerflk1/public_html/OfficeSupplyEmporium/checkout.php on line 3
+[27-Apr-2022 20:40:09 UTC] PHP Fatal error:  require_once(): Failed opening required '../scripts/connectToDatabase.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/doerflk1/public_html/OfficeSupplyEmporium/checkout.php on line 3
+[27-Apr-2022 20:58:16 UTC] PHP Warning:  A non-numeric value encountered in /home/doerflk1/public_html/OfficeSupplyEmporium/checkout.php on line 95
+[27-Apr-2022 20:58:16 UTC] PHP Warning:  A non-numeric value encountered in /home/doerflk1/public_html/OfficeSupplyEmporium/checkout.php on line 95
+[27-Apr-2022 20:58:16 UTC] PHP Warning:  Division by zero in /home/doerflk1/public_html/OfficeSupplyEmporium/checkout.php on line 95
+[27-Apr-2022 20:59:06 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/doerflk1/public_html/OfficeSupplyEmporium/checkout.php on line 55
+[27-Apr-2022 20:59:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/checkout.php:56
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/checkout.php on line 56

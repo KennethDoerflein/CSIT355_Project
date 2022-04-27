@@ -74,9 +74,9 @@
                         echo '<div style = "margin: 20px"><u>Description</u>: '.$currentProduct['description'].'</div>';
                         echo '<div style = "margin: 20px"><u>Category</u>: '.$currentProduct['category'].'</div>';
                         echo '<div style = "margin: 20px"><u>Manufacturer</u>: '.$currentProduct['manufacturer'].'</div>';
-                        echo '<div style = "margin: 20px"><u>Price</u>: $'.$currentProduct['price'].'</div>';
+                        echo '<div style = "margin: 20px"><u>Price</u>: '.money_format("$%i",$currentProduct['price']).'</div>';
                         echo '<div style = "margin: 20px"><label for="qty"><u>Quantity</u>: </label>';
-                        echo '<input type="number" id="qty" name="qty" max = "'.$currentProduct['quantity'].'"></div>';
+                        echo '<input type="number" id="qty" name="qty" min ="1" max = "'.$currentProduct['quantity'].'"></div>';
                         echo '<div style = "margin: 20px"><button name ="productID" value ='.$currentProduct['productID'].'>Add to cart</button></div>';
                         echo '</center>';
                         echo '</form>';

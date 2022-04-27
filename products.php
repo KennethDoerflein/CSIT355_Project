@@ -69,7 +69,7 @@
                         echo '<div class="productCard">';
                         echo '<div><img src="'.$currentProduct['image'].'" style="width:100%"></div>';
                         echo '<div><h4>'.$currentProduct['name'].'</h4></div>';
-                        echo '<div>$'.$currentProduct['price'].'</div>';
+                        echo '<div>'.money_format("$%i",$currentProduct['price']).'</div>';
                         echo '<button name ="productID" value ='.$currentProduct['productID'].'>View Product</button>';
                         echo '</form>';
                         echo '</div>';

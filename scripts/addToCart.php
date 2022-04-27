@@ -35,7 +35,16 @@
             $i = 0;
         }
     }
-
+    
+    $query = "SELECT * FROM CART WHERE productID ='$productID' AND accountNumber ='$acctNum'";
+    $inCart = $database->query($query);
+    $numOfItems = mysqli_num_rows($inCart);
+    $currentEntry = $inCart->fetch_assoc();
+    $currentQTY = $currentEntry['quantity'];
+    $newQTY = $currentQTY + $quantity;
+    if( $numOfItems > 0 ){
+        $quantity = $newQTY;
+    }
     
     $query = "SELECT * FROM PRODUCT WHERE productID ='$productID'";
     $product = $database->query($query);
@@ -46,6 +55,8 @@
         header('Location: ../cart.php');
         $database->close();
         exit();
+    }else if($numOfItems > 0){
+        $inputToCart = "UPDATE CART SET quantity = '$quantity' WHERE productID ='$productID' AND accountNumber ='$acctNum'";
     }else{
         $inputToCart = "INSERT INTO CART VALUES ('".$cartID."', '".$acctNum."', '".$productID."', '".$quantity."' , '".$date."')";
     }
