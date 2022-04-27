@@ -42,7 +42,7 @@
     //$numOfItemsInCart = mysqli_num_rows($products);
     //$currentProduct = $products->fetch_assoc();
         
-    $query = "SELECT PRODUCT.productID, PRODUCT.price, PRODUCT.name, PRODUCT.image, CART.quantity FROM CART INNER JOIN PRODUCT ON PRODUCT.productID = CART.productID WHERE CART.accountNUmber = $activeUser";    
+    $query = "SELECT PRODUCT.productID, PRODUCT.price, PRODUCT.name, PRODUCT.image, CART.quantity FROM CART INNER JOIN PRODUCT ON PRODUCT.productID = CART.productID WHERE CART.accountNumber = $activeUser";    
     $products = $database->query($query);
     $numOfItemsInCart = mysqli_num_rows($products);
     $currentProduct = $products->fetch_assoc();  
