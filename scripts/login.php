@@ -24,6 +24,11 @@
         exit();
     }
     
+    if(!get_magic_quotes_gpc()) {
+        $email = addslashes($email);
+        $password = addslashes($password);
+    }
+    
     $search = "SELECT password, accountNumber FROM CUSTOMER WHERE email = '".$email."'";
     $accountInfo = $database->query($search);
     
@@ -39,7 +44,8 @@
     
     if(password_verify($password, $account['password'])){
         $_SESSION['active'] = true;
-        $_SESSION['account'] = $row['accountNumber'];
+        $_SESSION['account'] = $account['accountNumber'];
+        $_SESSION["login_time_stamp"] = time();
         
         $_SESSION['loggedin'] = true;
         header('Location: ../homepage.php');
@@ -53,6 +59,6 @@
         $database->close();
         exit();
     }
-    // closes connection to database
+    
     $database->close();
 ?>

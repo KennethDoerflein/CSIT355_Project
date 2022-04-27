@@ -1,0 +1,69 @@
+[20-Apr-2022 18:17:57 UTC] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php73/sess_4b84a96c658e2a03600ef8baddc8ad23, O_RDWR) failed: Permission denied (13) in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/login.php on line 6
+[20-Apr-2022 18:17:57 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php73) in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/login.php on line 6
+[20-Apr-2022 18:18:03 UTC] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php73/sess_4b84a96c658e2a03600ef8baddc8ad23, O_RDWR) failed: Permission denied (13) in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/login.php on line 6
+[20-Apr-2022 18:18:03 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php73) in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/login.php on line 6
+[20-Apr-2022 18:18:08 UTC] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php73/sess_4b84a96c658e2a03600ef8baddc8ad23, O_RDWR) failed: Permission denied (13) in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/login.php on line 6
+[20-Apr-2022 18:18:08 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php73) in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/login.php on line 6
+[27-Apr-2022 00:31:27 America/New_York] PHP Warning:  Use of undefined constant window - assumed 'window' (this will throw an Error in a future version of PHP) in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 16
+[27-Apr-2022 00:31:27 America/New_York] PHP Warning:  Use of undefined constant history - assumed 'history' (this will throw an Error in a future version of PHP) in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 16
+[27-Apr-2022 00:31:27 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function back() in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 16
+[27-Apr-2022 01:04:04 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 30
+[27-Apr-2022 01:04:37 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 30
+[27-Apr-2022 01:04:42 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 30
+[27-Apr-2022 01:05:11 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 39
+[27-Apr-2022 01:05:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 30
+[27-Apr-2022 01:05:35 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 30
+[27-Apr-2022 01:06:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 30
+[27-Apr-2022 01:07:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 40
+[27-Apr-2022 01:07:36 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 40
+[27-Apr-2022 01:08:11 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 40
+[27-Apr-2022 01:18:40 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 40
+[27-Apr-2022 01:23:19 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 40
+[27-Apr-2022 01:23:29 America/New_York] PHP Warning:  mysqli::query(): Empty query in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 29
+[27-Apr-2022 01:23:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 40
+[27-Apr-2022 01:23:44 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 40

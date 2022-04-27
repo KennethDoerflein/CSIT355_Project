@@ -47,7 +47,7 @@
           <form action="./searchResults.php" method="post">
               <div class="search-container">
                   <button type="submit">Submit</button>
-                  <input type="text" placeholder="Search.." name="search">
+                  <input type="text" placeholder="Search.." name="search" required>
               </div>
               
           </form>

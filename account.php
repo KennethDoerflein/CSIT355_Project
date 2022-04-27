@@ -22,6 +22,17 @@
         }
     }
     
+     $query = "SELECT * FROM CUSTOMER WHERE accountNumber = '".$_SESSION['account']."'";
+     $accountInfo = $database->query($query);
+     $account = $accountInfo->fetch_assoc();
+     
+     $email = $account['email'];
+     $Fname = $account['Fname'];
+     $Lname = $account['Lname'];
+     $address = $account['address'];
+     $phoneNumber = $account['phoneNumber'];
+    
+    
     //closes connection
     $database->close();
 ?>
@@ -34,10 +45,10 @@
     
     <body>
         <div class="topnav">
-          <a class="active" href="#">Home</a>
-          <a href="products.php">Products</a>
+          <a  href="homepage.php">Home</a>
+          <a  href="products.php">Products</a>
           <a class="right" href="./scripts/logout.php">Logout</a>
-          <a class="right" href="account.php">Account</a>
+          <a class="right active" href="account.php">Account</a>
           <a class="right" href="cart.php">Cart</a>
           <form action="./searchResults.php" method="post">
               <div class="search-container">
@@ -49,12 +60,24 @@
           
           
         </div>
-        
-        Homepage
-        <br>
-        <?php
-            echo "Account Number of Person Logged in: " .$_SESSION['account'] ;
-        ?>
-        <!--<a class="link" href="./scripts/logout.php">Logout</a>-->
+        <br><br><br><br>
+       <div style="text-align: center"><b><u>User Information:</u></div></b>
+            <div></div>
+            <center>
+                <div>
+                    First Name: <?php echo $Fname; ?>
+                </div>
+                <div>
+                    Last Name: <?php echo $Lname; ?>
+                </div>
+                <div>
+                    Email Address: <?php echo $email; ?>
+                </div>
+                <div>
+                    Primary Address: <?php echo $address; ?>
+                </div>
+                <div>
+                    Phone Number: <?php echo $phoneNumber; ?>
+                </div>
     </body>
 </html>

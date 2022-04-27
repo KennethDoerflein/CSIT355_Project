@@ -22,6 +22,31 @@
         }
     }
     
+    if($_SESSION['addCart'] == 'added'){
+        $notice = 'Item was added to your cart';
+            
+        $_SESSION['addCart'] = '';
+    }else if($_SESSION['addCart'] == 'failed'){
+        $notice = 'Item was not added to your cart';
+            
+        $_SESSION['addCart'] = '';
+    }
+    else if($_SESSION['addCart'] == 'insuffStock'){
+        $notice = 'Insufficent Stock';
+            
+        $_SESSION['addCart'] = '';
+    }
+    $activeUser = $_SESSION['account'];
+    //$query = "SELECT * FROM CART WHERE accountNumber ='$activeUser'";
+    //$products = $database->query($query);
+    //$numOfItemsInCart = mysqli_num_rows($products);
+    //$currentProduct = $products->fetch_assoc();
+        
+    $query = "SELECT PRODUCT.productID, PRODUCT.price, PRODUCT.name, PRODUCT.image, CART.quantity FROM CART INNER JOIN PRODUCT ON PRODUCT.productID = CART.productID WHERE CART.accountNUmber = $activeUser";    
+    $products = $database->query($query);
+    $numOfItemsInCart = mysqli_num_rows($products);
+    $currentProduct = $products->fetch_assoc();  
+        
     //closes connection
     $database->close();
 ?>
@@ -33,28 +58,45 @@
     </head>
     
     <body>
+        
         <div class="topnav">
           <a  href="homepage.php">Home</a>
           <a  href="products.php">Products</a>
           <a class="right" href="./scripts/logout.php">Logout</a>
           <a class="right" href="account.php">Account</a>
           <a class="right active" href="cart.php">Cart</a>
-          <form action="#" method="post">
+          <form action="./searchResults.php" method="post">
               <div class="search-container">
                   <button type="submit">Submit</button>
-                  <input type="text" placeholder="Search.." name="search">
+                  <input type="text" placeholder="Search.." name="search" required>
               </div>
-              
           </form>
-          
-          
         </div>
-        
-        Cart
         <br>
+        <center><div style='color: red;'><?php echo $notice; ?></div></center>
+
         <?php
-            echo "Account Number of Person Logged in: " .$_SESSION['account'] ;
-        ?>
-        <!--<a class="link" href="./scripts/logout.php">Logout</a>-->
+            if($numOfItemsInCart == 0){
+                echo "Your cart is Empty";
+            }else{
+                for($i = 0; $i < $numOfItemsInCart ; $i++){
+                    echo '<div class="productCard">';
+                    echo '<div>'.$currentProduct['productID'].'</div>';
+                    echo '</div>';
+                    $currentProduct = $products->fetch_assoc();
+                }
+            }
+            ?>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

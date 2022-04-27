@@ -27,11 +27,14 @@
         $search = addslashes($search);
     }
     
-    $query = "SELECT * FROM PRODUCT WHERE name like '%".$search."%' OR description like '%".$search."%' OR manufacturer like '%".$search."%'";
-    $products = $database->query($query);
-    $numOfProducts = mysqli_num_rows($products);
-    $currentProduct = $products->fetch_assoc();
-    
+    if(!$search){
+        $notice = 'No results, please try again.';
+    }else{
+        $query = "SELECT * FROM PRODUCT WHERE name like '%".$search."%' OR description like '%".$search."%' OR manufacturer like '%".$search."%'";
+        $products = $database->query($query);
+        $numOfProducts = mysqli_num_rows($products);
+        $currentProduct = $products->fetch_assoc();
+    }
     //closes connection
     $database->close();
 ?>
@@ -52,7 +55,7 @@
           <form action="./searchResults.php" method="post">
               <div class="search-container">
                   <button type="submit">Submit</button>
-                  <input type="text" placeholder="Search.." name="search">
+                  <input type="text" placeholder="Search.." name="search" required>
               </div>
               
           </form>
@@ -62,12 +65,10 @@
         
         <br>
 
-            <div class ="listedProducts">
             <?php
-                //echo "Account Number of Person Logged in: " .$_SESSION['account'] ;
                 echo '<br>';
                 if($numOfProducts == 0){
-                    echo "We dont have any products yet, please check back later";
+                    echo '<div style ="text-align: center">No results, please try again.</div>';
                 }else{
                     for($i = 0; $i < $numOfProducts ; $i++){
 
@@ -84,8 +85,5 @@
                     }
                 }
             ?>
-            </div>
-
-        <!--<a class="link" href="./scripts/logout.php">Logout</a>-->
     </body>
 </html>

@@ -21,6 +21,7 @@
     $state = trim($_POST['state']);
     $zipcode = trim($_POST['zip']);
     
+    
     if (!$email || !$password || !$confirmPassword || !$firstname || !$lastName|| !$phoneNumber || !$address || !$city || !$state || !$zipcode){
         $_SESSION['registration'] = 'MissingInput';
 	    header('Location: ../register.php');
@@ -92,6 +93,7 @@
         $_SESSION['registration'] = 'success';
         $_SESSION['active'] = true;
         $_SESSION['account'] = $accountNumber;
+        $_SESSION["login_time_stamp"] = time();
         
         $_SESSION['loggedin'] = true;
 	    header('Location: ../homepage.php');
