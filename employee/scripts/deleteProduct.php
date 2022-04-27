@@ -18,7 +18,6 @@
 
   if (!get_magic_quotes_gpc()) {
     $productID = addslashes($productID);
-
   }
 
   if (mysqli_connect_errno()) {

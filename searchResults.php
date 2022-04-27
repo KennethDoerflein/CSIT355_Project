@@ -22,7 +22,12 @@
         }
     }
     
-    $query = "SELECT * FROM PRODUCT";
+    $search = trim($_POST['search']);
+    if(!get_magic_quotes_gpc()) {
+        $search = addslashes($search);
+    }
+    
+    $query = "SELECT * FROM PRODUCT WHERE name like '%".$search."%' OR description like '%".$search."%' OR manufacturer like '%".$search."%'";
     $products = $database->query($query);
     $numOfProducts = mysqli_num_rows($products);
     $currentProduct = $products->fetch_assoc();
@@ -40,7 +45,7 @@
     <body>
         <div class="topnav">
           <a  href="homepage.php">Home</a>
-          <a class="active" href="products.php">Products</a>
+          <a href="products.php">Products</a>
           <a class="right" href="./scripts/logout.php">Logout</a>
           <a class="right" href="account.php">Account</a>
           <a class="right" href="cart.php">Cart</a>
@@ -56,10 +61,11 @@
         </div>
         
         <br>
-        <center>
+
+            <div class ="listedProducts">
             <?php
                 //echo "Account Number of Person Logged in: " .$_SESSION['account'] ;
-                
+                echo '<br>';
                 if($numOfProducts == 0){
                     echo "We dont have any products yet, please check back later";
                 }else{
@@ -78,7 +84,8 @@
                     }
                 }
             ?>
-        </center>
+            </div>
+
         <!--<a class="link" href="./scripts/logout.php">Logout</a>-->
     </body>
 </html>

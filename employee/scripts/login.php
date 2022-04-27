@@ -24,6 +24,11 @@
         exit();
     }
     
+    if(!get_magic_quotes_gpc()) {
+        $email = addslashes($email);
+        $password = addslashes($password);
+    }
+    
     $search = "SELECT password, employeeID FROM EMPLOYEE WHERE email = '".$email."'";
     $accountInfo = $database->query($search);
     
