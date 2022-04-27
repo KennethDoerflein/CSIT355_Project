@@ -1,159 +1,112 @@
-body{
-    margin:0;
-    font-size:26px;
-    font-family: 'Open Sans';
-}
-head{
-    padding:0;
-}
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
+<?php
+    // connect to the database
+    require_once './scripts/connectToDatabase.php';
+        
+        // start session
+    session_start();
+    
+    if ((isset($_SESSION['active']) && $_SESSION['active']) === false) {
+        $_SESSION['loggedin'] = false;
+        header('Location: ./index.php');
 
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+        //closes db connection
+        $database->close();
+        exit();
+    }
+    
+    if(isset($_SESSION["active"])){
+        if(time()-$_SESSION["login_time_stamp"] > 1800){
+            session_unset();
+            session_destroy();
+            header("Location: ./index.php");
+        }
+    }
+    
+    if($_SESSION['addCart'] == 'added'){
+        $notice = 'Item was added to your cart';
+            
+        $_SESSION['addCart'] = '';
+    }else if($_SESSION['addCart'] == 'failed'){
+        $notice = 'Item was not added to your cart';
+            
+        $_SESSION['addCart'] = '';
+    }
+    else if($_SESSION['addCart'] == 'insuffStock'){
+        $notice = 'Insufficent Stock';
+            
+        $_SESSION['addCart'] = '';
+    }
+    $activeUser = $_SESSION['account'];
+    //$query = "SELECT * FROM CART WHERE accountNumber ='$activeUser'";
+    //$products = $database->query($query);
+    //$numOfItemsInCart = mysqli_num_rows($products);
+    //$currentProduct = $products->fetch_assoc();
+        
+    $query = "SELECT PRODUCT.productID, PRODUCT.price, PRODUCT.name, PRODUCT.image, CART.quantity FROM CART INNER JOIN PRODUCT ON PRODUCT.productID = CART.productID WHERE CART.accountNumber = $activeUser";    
+    $products = $database->query($query);
+    $numOfItemsInCart = mysqli_num_rows($products);
+    $currentProduct = $products->fetch_assoc();  
+    $totalCost = doubleval(0.0);
+        
+    //closes connection
+    $database->close();
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Office Supply Emporium</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    
+    <body>
+        
+        <div class="topnav">
+          <a  href="homepage.php">Home</a>
+          <a  href="products.php">Products</a>
+          <a class="right" href="./scripts/logout.php">Logout</a>
+          <a class="right" href="account.php">Account</a>
+          <a class="right active" href="cart.php">Cart</a>
+          <form action="./searchResults.php" method="post">
+              <div class="search-container">
+                  <button type="submit">Submit</button>
+                  <input type="text" placeholder="Search.." name="search" required>
+              </div>
+          </form>
+        </div>
+        <br>
+        <center><div style='color: red;'><?php echo $notice; ?></div></center>
 
-.topnav a.right {
-  float: right;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+        <?php
+            if($numOfItemsInCart == 0){
+                echo "Your cart is Empty";
+            }else{
+                for($i = 0; $i < $numOfItemsInCart ; $i++){
+                    echo '<div class="cartCard">';
+                        echo '<img src="'.$currentProduct['image'].'" style="width:8%">';
+                        echo '<div class="vl"></div>';
+                        echo ''.$currentProduct['name'].'';
+                        echo '<div class="vl"></div>';
+                        echo 'Quantity: '.$currentProduct['quantity'].'';
+                        echo '<div class="vl"></div>';
+                        echo 'Price: $'.$currentProduct['price'].'';
+                        $totalCost += $currentProduct['price'];
+                        echo '<br>';
+                    echo '</div>';
+                    $currentProduct = $products->fetch_assoc();
+                }
+            }
+            ?>
+            <center><div style='color: red;'>$<?php echo $totalCost; ?></div></center>;
+    </body>
+</html>
 
-.topnav a.activeRight {
-  float: right;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  background-color: #428bca;
-  color: white;
-}
 
 
 
-.topnav a:hover {
-  background-color: lightblue;
-  color: black;
-}
 
-.topnav a.active {
-  background-color: lightgray;
-  color: black;
-}
 
-.login {
-    background-color: white;
-    text-decoration: none;
-}
-.login a.link{
-    color:blue;
-}
-.login a:hover{
-    color: green;
-}
-.sButton {
-    border: none;
-    text-decoration: none;
-    background-color: black;
-    color: white;
-    display: inline-block;
-    padding: 15px 60px;
-    font-size: 16px;
-    text-align: center;
-    margin: 12px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-}
-.login-form{
-    padding: 10px;
-    margin: 8px 0px;
-}
 
-#inputForm{
-    padding: 10px;
-    width: 40%;
-    margin: 8px 0px;
-}
 
-.topnav .search-container {
-  float: right;
-}
 
-.topnav input[type=text] {
-  padding: 3px;
-  margin-top: 12px;
-  font-size: 12px;
-  border: none;
-}
 
-.topnav .search-container button {
-  float: right;
-  padding: 3px;
-  margin-top: 12px;
-  margin-right: 16px;
-  display: relative;
-  background: #ddd;
-  font-size: 12px;
-  border: none;
-  cursor: pointer;
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
-
-.listedProducts{
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  flex-wrap: wrap;
-  float:none;
-}
-.productCard{
-  padding: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 365px;
-  /*margin-top: 20px;*/
-  /*margin-bottom: 25px;*/
-  /*margin-left: 103px;*/
-  margin: 30px; 
-  text-align: center;
-  float:left;
-}
-
-.centerIMG{
-    display: block;
-    margin-left: auto; 
-    margin-right: auto;
-    max-width:22%;
-}
-
-.cartCard{
-  padding: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  /*max-width: 800;*/
-  /*max-height: 400;*/
-  /*margin-top: 20px;*/
-  /*margin-bottom: 25px;*/
-  /*margin-left: 103px;*/
-  margin: 30px; 
-  /*text-align: center;*/
-  /*float:left;*/
-
-}
-
-.vl {
-    border-left: 2px solid black;
-    height: auto;
-}
 
