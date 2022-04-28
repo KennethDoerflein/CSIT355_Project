@@ -60,7 +60,16 @@
           
           
         </div>
-        <br><br><br><br>
+        <br><br>
+        <center>
+            <u>Orders</u>
+            <form action="./orders.php" method="post">
+            <center><button>View Orders</button></center>
+            </form>
+            <br>
+            <hr>
+        </center>
+        <br>
        <div style="text-align: center"><b><u>User Information:</u></div></b>
             <div></div>
             <center>

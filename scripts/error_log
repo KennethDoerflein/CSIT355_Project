@@ -67,3 +67,19 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/addToCart.php on line 40
+[28-Apr-2022 01:46:01 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/placeOrder.php:56
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/placeOrder.php on line 56
+[28-Apr-2022 01:46:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/placeOrder.php:56
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/placeOrder.php on line 56
+[28-Apr-2022 01:56:04 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/placeOrder.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/placeOrder.php on line 43
+[28-Apr-2022 01:56:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/placeOrder.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/scripts/placeOrder.php on line 43

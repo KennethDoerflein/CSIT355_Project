@@ -44,16 +44,6 @@
             
         $_SESSION['removeCart'] = '';
     }
-    else if($_SESSION['placeOrder'] == 'inSuffStock'){
-        $notice = 'Insufficient stock, product quantities were updated';
-            
-        $_SESSION['placeOrder'] = '';
-    }
-    else if($_SESSION['placeOrder'] == 'success'){
-        $notice = 'Order received';
-            
-        $_SESSION['placeOrder'] = '';
-    }
     $activeUser = $_SESSION['account'];
     //$query = "SELECT * FROM CART WHERE accountNumber ='$activeUser'";
     //$products = $database->query($query);
@@ -65,6 +55,10 @@
     $numOfItemsInCart = mysqli_num_rows($products);
     $currentProduct = $products->fetch_assoc();  
     $totalCost = doubleval(0.0);
+    
+    $query ="SELECT * FROM CUSTOMER WHERE accountNumber ='$activeUser'";
+    $account = $database->query($query);
+    $accountInfo = $account->fetch_assoc();
         
     //closes connection
     $database->close();
@@ -84,7 +78,7 @@
           <a  href="products.php">Products</a>
           <a class="right" href="./scripts/logout.php">Logout</a>
           <a class="right" href="account.php">Account</a>
-          <a class="right active" href="cart.php">Cart</a>
+          <a class="right" href="cart.php">Cart</a>
           <form action="./searchResults.php" method="post">
               <div class="search-container">
                   <button type="submit">Submit</button>
@@ -96,34 +90,43 @@
         <center><div style='color: red;'><?php echo $notice; ?></div></center>
 
         <?php
-            if($numOfItemsInCart == 0){
-                echo "<center>Your cart is empty</center>";
-            }else{
-                for($i = 0; $i < $numOfItemsInCart ; $i++){
-                    echo '<form action="./scripts/removeFromCart.php" method="post">';
-                    echo '<div class="cartCard">';
-                        echo '<img src="'.$currentProduct['image'].'" style="width:2.5%">';
-                        echo '<div class = "cart-info">'.$currentProduct['name'].'</div>';
-                        echo '<div class = "cart-info">Price: $'.$currentProduct['price'].'</div>';
-                        echo '<div class = "cart-info">Quantity: '.$currentProduct['quantity'].'</div>';
-                        $subTotal = $currentProduct['quantity'] * $currentProduct['price'];
-                        echo '<div class = "cart-info">Subtotal: '.money_format("$%i",$subTotal).'</div>';
-                        $totalCost += $subTotal;
-                        echo' <button name ="productID" value ='.$currentProduct['productID'].'>Remove</button>';
-                        echo '<br>';
-                        echo '</form>';
-                    echo '</div>';
-                    $currentProduct = $products->fetch_assoc();
-                }
+            echo '<div class="checkoutCard">';
+            echo '<u>';
+            echo 'Shipping Address';
+            echo '</u>';
+            echo '<br>';
+            echo $accountInfo['Fname'].' '.$accountInfo['Lname'];
+            echo '<br>';
+            echo $accountInfo['address'];
+            echo '<br>';
+            echo $accountInfo['phoneNumber'];
+            
+            echo '</div>';
+            echo '<hr>';
+            for($i = 0; $i < $numOfItemsInCart ; $i++){
+                echo '<div class="cartCard">';
+                    echo '<img src="'.$currentProduct['image'].'" style="width:2.5%">';
+                    echo '<div class = "cart-info">'.$currentProduct['name'].'</div>';
+                    echo '<div class = "cart-info">Price: $'.$currentProduct['price'].'</div>';
+                    echo '<div class = "cart-info">Quantity: '.$currentProduct['quantity'].'</div>';
+                    $subTotal = $currentProduct['quantity'] * $currentProduct['price'];
+                    echo '<div class = "cart-info">Subtotal: '.money_format("$%i",$subTotal).'</div>';
+                    $totalCost += $subTotal;
+                    echo '<br>';
+                echo '</div>';
+                $currentProduct = $products->fetch_assoc();
+                
             }
             ?>
             <?php
             if($numOfItemsInCart > 0){
+            echo '<center><div>Shipping: $0.00</div></center>';
+            echo '<center><div>Tax: $0.00</div></center>';
             echo '<center><div>Total Cost: ';
             echo money_format("$%i",$totalCost);
             echo '</div></center>';
-            echo '<form action="./checkout.php" method="post">';
-            echo' <center><button>Checkout</button></center>';
+            echo '<form action="./scripts/placeOrder.php" method="post">';
+            echo '<center><button>Place Order</button></center>';
             echo '</form>';
             }
             ?>
