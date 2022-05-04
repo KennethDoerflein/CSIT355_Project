@@ -60,6 +60,16 @@
         $database->close();
 	    exit();
   }
+  
+  $query = "SELECT productID FROM `PRODUCT` WHERE productID = '$productID'";
+  $result = $database->query($query);
+  $id = $result->fetch_assoc();
+  if(!$id){
+        $_SESSION['modifyProduct'] = 'failed';
+        header('Location: ../modify.php');
+        $database->close();
+	    exit();
+    }
 
   if($name){
         $query = "UPDATE PRODUCT SET name = '$name' WHERE productID = '$productID'";

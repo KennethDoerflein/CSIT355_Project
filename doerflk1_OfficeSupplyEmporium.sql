@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 04, 2022 at 01:24 AM
+-- Generation Time: May 04, 2022 at 01:58 AM
 -- Server version: 5.7.38
 -- PHP Version: 7.4.29
 
@@ -58,7 +58,8 @@ CREATE TABLE `CUSTOMER` (
 --
 
 INSERT INTO `CUSTOMER` (`accountNumber`, `email`, `Fname`, `Lname`, `password`, `address`, `phoneNumber`, `dateOpened`) VALUES
-('10457796', 'test@test.com', 'test', 'test', '$2y$10$q3fiwUlGWH1QsUFuFCYqbuIm3bUZ3bjexDfPz0RLyn9i/l4xEssTa', '1 Normal Ave, Montclair NJ 07028', '9999999999', '2022-04-20');
+('10457796', 'doerfleink1@montclair.edu', 'Kenneth', 'Doerflein', '$2y$10$q3fiwUlGWH1QsUFuFCYqbuIm3bUZ3bjexDfPz0RLyn9i/l4xEssTa', '1 Normal Ave Montclair NJ 07028', '9999999999', '2022-04-20'),
+('14024928', 'customer@gmail.com', 'Customer', '1', '$2y$10$.RF0EIxgMzejFWysXdBdNeHwIFrMKcZec7nbAHHXMe4LO/2IcaMsq', '1 Normal Ave Montclair NJ 07028', '4444444444', '2022-05-04');
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,9 @@ CREATE TABLE `EMPLOYEE` (
 --
 
 INSERT INTO `EMPLOYEE` (`employeeID`, `email`, `Fname`, `Lname`, `password`, `address`, `phoneNumber`, `salary`, `startDate`) VALUES
-('35933854', 'test@test.com', 'John', 'Doe', '$2y$10$w9PNVXBBpdDAi.HXoWd.5etOD7yCsScSehWygvEHRJ5kBYoglN1LK', '1 Normal Ave, Montclair NJ 07028', '9999999999', 38848, '2022-04-24');
+('35933854', 'employee@ose.com', 'Kenneth', 'Doerflein', '$2y$10$w9PNVXBBpdDAi.HXoWd.5etOD7yCsScSehWygvEHRJ5kBYoglN1LK', '1 Normal Ave Montclair NJ 07028', '9999999999', 38848, '2022-04-24'),
+('38420550', 'employee2@ose.com', 'Employee', '2', '$2y$10$cHZ23fbCFfDEaNn.vPShROFQzNBom/MlsI3pb0P0yUpiq75HOx1YC', '1 Normal Ave Montclair NJ 07028', '5555555555', 31471, '2022-05-04'),
+('33600956', 'employee3@ose.com', 'Employee', '3', '$2y$10$yNMvz3opxyBoEfnyUPikoeKudyE4v2rImOYyX8IyAV6AbIA44MnVC', '1 Normal Ave Montclair NJ 07028', '1234567890', 33552, '2022-05-04');
 
 -- --------------------------------------------------------
 
@@ -137,7 +140,7 @@ CREATE TABLE `PRODUCT` (
 
 INSERT INTO `PRODUCT` (`productID`, `name`, `category`, `price`, `manufacturer`, `description`, `quantity`, `image`) VALUES
 ('32195', 'BIC Mechanical Pencils', 'Writing Implements', 10.29, 'BIC', '40 Pack, smoother, darker writing pencils', 13, 'https://target.scene7.com/is/image/Target/GUEST_2cedf797-2707-4df1-b60e-e36c293a8ade?wid=626&hei=626&qlt=80&fmt=pjpeg'),
-('43709', 'Crayola Crayons', 'Writing Implements', 1.58, 'Crayola', '24ct Classic Crayons', 65, 'https://target.scene7.com/is/image/Target/GUEST_70331375-a3d8-4009-87a0-5ee1e0f3e62e?wid=800&hei=800&qlt=80&fmt=pjpeg'),
+('43709', 'Crayola Crayons', 'Writing Implements', 1.49, 'Crayola', '24ct Classic Crayons', 65, 'https://target.scene7.com/is/image/Target/GUEST_70331375-a3d8-4009-87a0-5ee1e0f3e62e?wid=800&hei=800&qlt=80&fmt=pjpeg'),
 ('83728', 'Paper Mate Erasers', 'Writing Implements', 1.69, 'Paper Mate', '3 pack pink pearl erasers, smudge resistant', 29, 'https://target.scene7.com/is/image/Target/GUEST_c0fe8f3a-ef03-4b61-b258-e724fa24316c?wid=1569&hei=1569&fmt=pjpeg'),
 ('24079', 'Sharpie S-Gel Pen', 'Writing Implements', 5.59, 'Sharpie', 'Black Ink Gel Pen 0.7mm Gray Metal Barrel', 39, 'https://target.scene7.com/is/image/Target/GUEST_2365ab2d-fe58-449b-8045-8222f0c005fc?wid=1569&hei=1569&fmt=pjpeg'),
 ('70584', 'Pilot G2 Black Gel Pen', 'Writing Implements', 4.49, 'Pilot G2', 'Black gel ink pen with ultra fine point 0.38mm 3 pack', 50, 'https://target.scene7.com/is/image/Target/GUEST_cc790848-9ca2-4dfd-be72-d61c6a0d3255?wid=626&hei=626&qlt=80&fmt=pjpeg'),
@@ -165,7 +168,7 @@ INSERT INTO `PRODUCT` (`productID`, `name`, `category`, `price`, `manufacturer`,
 ('46556', '3\" 3 Ring Binder', 'Binders', 11.39, 'Avery', '600 Sheet 3\" Heavy Duty Non Stick', 22, 'https://target.scene7.com/is/image/Target/GUEST_5b06755f-8696-4440-8f6b-0f0b5b9b5e6f?wid=626&hei=626&qlt=80&fmt=pjpeg'),
 ('68532', '4\" 3 Ring Binder', 'Binders', 14.89, 'Avery', '700 Sheet Heavy Duty Ring Binder White', 66, 'https://target.scene7.com/is/image/Target/GUEST_d7da8276-a40a-4337-8ba8-f8c394a89c1c?wid=626&hei=626&qlt=80&fmt=pjpeg'),
 ('27398', '1.5\" 3 Ring Binder', 'Binders', 7.69, 'Avery', '400 Sheet 1.5\" One Touch EZD Heavy-Duty', 47, 'https://target.scene7.com/is/image/Target/GUEST_a73b6339-9c6e-4c40-a410-5a3865975dff?wid=626&hei=626&qlt=80&fmt=pjpeg'),
-('46878', '1.5\" Ring Three-Hold Binder', 'Binders', 8.99, 'Five Star', 'built-in puncher, holds up to 225 sheets', 8, 'https://target.scene7.com/is/image/Target/GUEST_2d21fa58-93f9-44a6-adc8-a743943b89fa?wid=626&hei=626&qlt=80&fmt=pjpeg');
+('80027', '1.5\" Ring Binder', 'Binders', 8.99, 'Five Star', 'built-in hole puncher, holds up to 225 sheets', 8, 'https://target.scene7.com/is/image/Target/GUEST_2d21fa58-93f9-44a6-adc8-a743943b89fa?wid=626&hei=626&qlt=80&fmt=pjpeg');
 
 --
 -- Indexes for dumped tables
