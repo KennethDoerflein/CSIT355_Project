@@ -7,18 +7,17 @@
     
     if ((isset($_SESSION['active']) && $_SESSION['active']) === false) {
         $_SESSION['loggedin'] = false;
-        header('Location: ./index.php');
+        header('Location: ./login.php');
 
         //closes db connection
         $database->close();
         exit();
     }
-    
-    if(isset($_SESSION["active"])){
+        if(isset($_SESSION["active"])){
         if(time()-$_SESSION["login_time_stamp"] > 1800){
             session_unset();
             session_destroy();
-            header("Location: ./index.php");
+            header("Location: ./login.php");
         }
     }
     
@@ -46,6 +45,7 @@
     <body>
         <div class="topnav">
           <a  href="homepage.php">Home</a>
+          <a href="products.php">Products</a>
           <a class="right" href="./scripts/logout.php">Logout</a>
           <a class="right active" href="account.php">Account</a>
           

@@ -3,6 +3,22 @@
     require_once '../scripts/connectToDatabase.php';
     //gets session info
     session_start();
+    if ((isset($_SESSION['active']) && $_SESSION['active']) === false) {
+        $_SESSION['loggedin'] = false;
+        header('Location: ./login.php');
+
+        //closes db connection
+        $database->close();
+        exit();
+    }
+        if(isset($_SESSION["active"])){
+        if(time()-$_SESSION["login_time_stamp"] > 1800){
+            session_unset();
+            session_destroy();
+            header("Location: ./login.php");
+        }
+    }
+    
     if($_SESSION['insertProduct'] == 'missingInput'){
         $notice = 'Something was missing. Please try again.';
             
@@ -67,6 +83,7 @@
         
         <div class="topnav">
           <a href="./homepage.php">Home</a>
+          <a href="products.php">Products</a>
           <a class="right" href="./scripts/logout.php">Logout</a>
           <a class="right" href="./account.php">Account</a>
         </div>

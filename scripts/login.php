@@ -4,7 +4,7 @@
     
     // start session
     session_start();
-    
+
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         header('Location: ../homepage.php');
         $_SESSION['active'] = true;
@@ -13,6 +13,8 @@
 	    $database->close();
         exit();
     }
+    
+    
     
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);

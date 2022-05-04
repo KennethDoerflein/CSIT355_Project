@@ -6,6 +6,24 @@
         // start session
     session_start();
 
+
+    if ((isset($_SESSION['active']) && $_SESSION['active']) === false) {
+        $_SESSION['loggedin'] = false;
+        header('Location: ../login.php');
+
+        //closes db connection
+        $database->close();
+        exit();
+    }
+        if(isset($_SESSION["active"])){
+        if(time()-$_SESSION["login_time_stamp"] > 1800){
+            session_unset();
+            session_destroy();
+            header("Location: ../login.php");
+        }
+    }
+    
+
   // create short variable names
   $productID=$_POST['name'];
 
