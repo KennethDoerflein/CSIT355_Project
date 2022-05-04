@@ -68,7 +68,7 @@
                 echo '<div class="cartCard">';
                     echo '<img src="'.$currentProduct['image'].'" style="width:2.5%">';
                     echo '<div class = "cart-info">'.$currentProduct['name'].'</div>';
-                    echo '<div class = "cart-info">Price: $'.$currentProduct['price'].'</div>';
+                    echo '<div class = "cart-info">Price: '.money_format("$%i",$currentProduct['price']).'</div>';
                     echo '<div class = "cart-info">Quantity: '.$currentProduct['quantity'].'</div>';
                     $subTotal = $currentProduct['quantity'] * $currentProduct['price'];
                     echo '<div class = "cart-info">Subtotal: '.money_format("$%i",$subTotal).'</div>';

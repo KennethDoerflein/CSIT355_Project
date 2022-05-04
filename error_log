@@ -1034,3 +1034,10 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/orders.php on line 70
+[28-Apr-2022 18:15:38 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/doerflk1/public_html/OfficeSupplyEmporium/orders.php on line 30
+[28-Apr-2022 18:15:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/doerflk1/public_html/OfficeSupplyEmporium/orders.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/orders.php on line 31
+[29-Apr-2022 13:01:20 UTC] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php73/sess_1aa27db6d665e027a9a733dcf4b0155d, O_RDWR) failed: Permission denied (13) in /home/doerflk1/public_html/OfficeSupplyEmporium/index.php on line 5
+[29-Apr-2022 13:01:20 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php73) in /home/doerflk1/public_html/OfficeSupplyEmporium/index.php on line 5

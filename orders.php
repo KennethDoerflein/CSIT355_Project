@@ -25,7 +25,7 @@
    
     $activeUser = $_SESSION['account'];
         
-    $query = "SELECT DISTINCT orderNumber FROM ORDERS WHERE accountNumber = $activeUser";    
+    $query = "SELECT DISTINCT orderNumber,purchaseDate FROM ORDERS WHERE accountNumber = $activeUser ORDER BY purchaseDate DESC";    
     $orders = $database->query($query);
     $numOfOrders = mysqli_num_rows($orders);
     $currentOrder = $orders->fetch_assoc();  
@@ -63,22 +63,22 @@
         <center><div style='color: red;'><?php echo $notice; ?></div></center>
 
         <?php
-            for($i = 0; $i < $numOfOrders ; $i++){
-                // session_start();
-                // $query1 = "SELECT SUM(price*quantity) FROM ORDERS WHERE accountNumber = $activeUser";    
-                // $sum = $database->query($query1);
-                // $totalPrice = $sum->fetch_assoc();
-                // $database->close();
-                echo '<form action="./orderDetail.php" method="post">';
-                echo '<div class="cartCard">';
-                    echo '<div class = "cart-info">Order #'.$currentOrder['orderNumber'].'</div>';
-                    //echo '<div class = "cart-info">Total Cost: $'.$totalPrice['SUM(price*quantity)'].'</div>';
-                    //echo '<div class = "cart-info">Quantity: '.$numOfPurchasedItems.'</div>';
-                    echo' <button name ="productID" value ='.$currentOrder['orderNumber'].'>View</button>';
-                    echo '<br>';
-                    echo '</form>';
-                echo '</div>';
-                $currentOrder = $orders->fetch_assoc();
+            if ($numOfOrders == 0 ){
+                echo '<center><br>You have no orders</center>';
+            }else{
+                for($i = 0; $i < $numOfOrders ; $i++){
+                    echo '<form action="./orderDetail.php" method="post">';
+                    echo '<div class="cartCard">';
+                        echo '<div class = "cart-info">Order #'.$currentOrder['orderNumber'].'</div>';
+                        echo '<div class = "cart-info">Date: '.$currentOrder['purchaseDate'].'</div>';
+                        //echo '<div class = "cart-info">Total Cost: $'.$totalPrice['SUM(price*quantity)'].'</div>';
+                        //echo '<div class = "cart-info">Quantity: '.$numOfPurchasedItems.'</div>';
+                        echo' <button name ="productID" value ='.$currentOrder['orderNumber'].'>View</button>';
+                        echo '<br>';
+                        echo '</form>';
+                    echo '</div>';
+                    $currentOrder = $orders->fetch_assoc();
+                }
             }
             ?>
     </body>

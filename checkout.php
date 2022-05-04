@@ -5,6 +5,7 @@
         // start session
     session_start();
     
+
     if ((isset($_SESSION['active']) && $_SESSION['active']) === false) {
         $_SESSION['loggedin'] = false;
         header('Location: ./index.php');

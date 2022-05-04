@@ -50,10 +50,15 @@
           
         </div>
         
-        Homepage
+        <center>
+            <br>
+            Welcome to the Office Supply Emporium!
+            <br>
+            <button class="sButton" onclick="window.location.href='./products.php'">View our products</button>
+        </center>
         <br>
         <?php
-            echo "Account Number of Person Logged in: " .$_SESSION['account'] ;
+            //echo "Account Number of Person Logged in: " .$_SESSION['account'] ;
         ?>
         <!--<a class="link" href="./scripts/logout.php">Logout</a>-->
     </body>

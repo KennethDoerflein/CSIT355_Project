@@ -5,6 +5,7 @@
         // start session
     session_start();
     
+    
     if ((isset($_SESSION['active']) && $_SESSION['active']) === false) {
         $_SESSION['loggedin'] = false;
         header('Location: ./index.php');
@@ -21,6 +22,8 @@
             header("Location: ./index.php");
         }
     }
+    
+    
     
     if($_SESSION['addCart'] == 'added'){
         $notice = 'Item was added to your cart';
@@ -60,7 +63,7 @@
     //$numOfItemsInCart = mysqli_num_rows($products);
     //$currentProduct = $products->fetch_assoc();
         
-    $query = "SELECT PRODUCT.productID, PRODUCT.price, PRODUCT.name, PRODUCT.image, CART.quantity FROM CART INNER JOIN PRODUCT ON PRODUCT.productID = CART.productID WHERE CART.accountNumber = $activeUser";    
+    $query = "SELECT PRODUCT.productID, PRODUCT.price, PRODUCT.name, PRODUCT.image, CART.quantity, CART.dateAdded FROM CART INNER JOIN PRODUCT ON PRODUCT.productID = CART.productID WHERE CART.accountNumber = $activeUser ORDER BY dateAdded DESC";    
     $products = $database->query($query);
     $numOfItemsInCart = mysqli_num_rows($products);
     $currentProduct = $products->fetch_assoc();  
@@ -94,7 +97,9 @@
         </div>
         <br>
         <center><div style='color: red;'><?php echo $notice; ?></div></center>
-
+        <center><div>Cart</div></center>
+        <hr></hr>
+        <br>
         <?php
             if($numOfItemsInCart == 0){
                 echo "<center>Your cart is empty</center>";
@@ -104,7 +109,7 @@
                     echo '<div class="cartCard">';
                         echo '<img src="'.$currentProduct['image'].'" style="width:2.5%">';
                         echo '<div class = "cart-info">'.$currentProduct['name'].'</div>';
-                        echo '<div class = "cart-info">Price: $'.$currentProduct['price'].'</div>';
+                        echo '<div class = "cart-info">Price: '.money_format("$%i",$currentProduct['price']).'</div>';
                         echo '<div class = "cart-info">Quantity: '.$currentProduct['quantity'].'</div>';
                         $subTotal = $currentProduct['quantity'] * $currentProduct['price'];
                         echo '<div class = "cart-info">Subtotal: '.money_format("$%i",$subTotal).'</div>';

@@ -71,7 +71,7 @@
                         echo '<center>';
                         echo '<div style = "margin: 20px"><b>'.$currentProduct['name'].'</b></div>';
                         //echo '<u>Description</u>';
-                        echo '<div style = "margin: 20px"><u>Item Number: </u>: '.$currentProduct['productID'].'</div>';
+                        //echo '<div style = "margin: 20px"><u>Item Number: </u>: '.$currentProduct['productID'].'</div>';
                         echo '<div style = "margin: 20px"><u>Description</u>: '.$currentProduct['description'].'</div>';
                         echo '<div style = "margin: 20px"><u>Category</u>: '.$currentProduct['category'].'</div>';
                         
