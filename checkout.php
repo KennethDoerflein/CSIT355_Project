@@ -127,7 +127,7 @@
             echo money_format("$%i",$totalCost);
             echo '</div></center>';
             echo '<form action="./scripts/placeOrder.php" method="post">';
-            echo '<center><button>Place Order</button></center>';
+            echo '<center><button class="sButton">Place Order</button></center>';
             echo '</form>';
             }
             ?>

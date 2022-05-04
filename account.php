@@ -64,7 +64,7 @@
         <center>
             <u>Orders</u>
             <form action="./orders.php" method="post">
-            <center><button>View Orders</button></center>
+            <center><button class="sButton">View Orders</button></center>
             </form>
             <br>
             <hr>

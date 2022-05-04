@@ -80,7 +80,7 @@
                         if ($currentProduct['quantity'] > 0){
                             echo '<div style = "margin: 20px"><label for="qty"><u>Quantity</u>: </label>';
                             echo '<input type="number" id="qty" name="qty" min ="1" max = "'.$currentProduct['quantity'].'"></div>';
-                            echo '<div style = "margin: 20px"><button name ="productID" value ='.$currentProduct['productID'].'>Add to cart</button></div>';
+                            echo '<div style = "margin: 20px"><button class="sButton" name ="productID" value ='.$currentProduct['productID'].'>Add to cart</button></div>';
                         }else{
                             echo 'Sorry this product is out of stock';
                         }

@@ -114,7 +114,7 @@
                         $subTotal = $currentProduct['quantity'] * $currentProduct['price'];
                         echo '<div class = "cart-info">Subtotal: '.money_format("$%i",$subTotal).'</div>';
                         $totalCost += $subTotal;
-                        echo' <button name ="productID" value ='.$currentProduct['productID'].'>Remove</button>';
+                        echo' <button class="sButton" name ="productID" value ='.$currentProduct['productID'].'>Remove</button>';
                         echo '<br>';
                         echo '</form>';
                     echo '</div>';
@@ -128,7 +128,7 @@
             echo money_format("$%i",$totalCost);
             echo '</div></center>';
             echo '<form action="./checkout.php" method="post">';
-            echo' <center><button>Checkout</button></center>';
+            echo' <center><button class="sButton">Checkout</button></center>';
             echo '</form>';
             }
             ?>

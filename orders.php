@@ -73,7 +73,7 @@
                         echo '<div class = "cart-info">Date: '.$currentOrder['purchaseDate'].'</div>';
                         //echo '<div class = "cart-info">Total Cost: $'.$totalPrice['SUM(price*quantity)'].'</div>';
                         //echo '<div class = "cart-info">Quantity: '.$numOfPurchasedItems.'</div>';
-                        echo' <button name ="productID" value ='.$currentOrder['orderNumber'].'>View</button>';
+                        echo' <button class="sButton" name ="productID" value ='.$currentOrder['orderNumber'].'>View</button>';
                         echo '<br>';
                         echo '</form>';
                     echo '</div>';
