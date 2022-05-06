@@ -9,7 +9,7 @@
         header('Location: ../homepage.php');
         $_SESSION['active'] = true;
         
-        //closes db conection
+        //closes database conection
 	    $database->close();
         exit();
     }

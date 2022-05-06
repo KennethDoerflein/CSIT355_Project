@@ -10,7 +10,7 @@
         $_SESSION['loggedin'] = false;
         header('Location: ../login.php');
 
-        //closes db connection
+        //closes database connection
         $database->close();
         exit();
     }
@@ -46,7 +46,7 @@
     $manufacturer = addslashes($manufacturer);
     $description = addslashes($description);
     $image = addslashes($image);
-    $quantity = doubleval($quantity);
+    $quantity = intval($quantity);
     $price = doubleval($price);
   }
   
@@ -62,8 +62,8 @@
   }
   
   $query = "SELECT productID FROM `PRODUCT` WHERE productID = '$productID'";
-  $result = $database->query($query);
-  $id = $result->fetch_assoc();
+  $result1 = $database->query($query);
+  $id = $result1->fetch_assoc();
   if(!$id){
         $_SESSION['modifyProduct'] = 'failed';
         header('Location: ../modify.php');

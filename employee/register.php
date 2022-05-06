@@ -1,5 +1,5 @@
 <?php
-    //gets db connection info
+    //gets database connection info
     require_once '../scripts/connectToDatabase.php';
     //gets session info
     session_start();

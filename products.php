@@ -9,7 +9,7 @@
         $_SESSION['loggedin'] = false;
         header('Location: ./index.php');
 
-        //closes db connection
+        //closes database connection
         $database->close();
         exit();
     }
@@ -22,7 +22,7 @@
         }
     }
     
-    $query = "SELECT * FROM PRODUCT";
+    $query = "SELECT * FROM PRODUCT ORDER BY category DESC";
     $products = $database->query($query);
     $numOfProducts = mysqli_num_rows($products);
     $currentProduct = $products->fetch_assoc();

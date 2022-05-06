@@ -9,7 +9,6 @@
         $_SESSION['loggedin'] = false;
         header('Location: ./login.php');
 
-        //closes db connection
         $database->close();
         exit();
     }
@@ -20,6 +19,20 @@
             header("Location: ./login.php");
         }
     }
+    
+    ## Start - stop employee from viewing page
+    $customerTest = "SELECT accountNumber FROM CUSTOMER WHERE accountNumber = '".$_SESSION['account']."'";
+    //gets info from database
+    $isCust = $database->query($customerTest);
+    $num_Cust = $isCust->num_rows;
+    if ($num_Cust > 0){
+        header('Location: ../account.php');
+
+        //closes database connection
+        $database->close();
+        exit();
+    }
+    ## End - stop employee from viewing page
     
      $query = "SELECT * FROM EMPLOYEE WHERE employeeID = '".$_SESSION['account']."'";
      $accountInfo = $database->query($query);

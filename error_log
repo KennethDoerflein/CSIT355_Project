@@ -1041,3 +1041,11 @@ Stack trace:
   thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/orders.php on line 31
 [29-Apr-2022 13:01:20 UTC] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php73/sess_1aa27db6d665e027a9a733dcf4b0155d, O_RDWR) failed: Permission denied (13) in /home/doerflk1/public_html/OfficeSupplyEmporium/index.php on line 5
 [29-Apr-2022 13:01:20 UTC] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php73) in /home/doerflk1/public_html/OfficeSupplyEmporium/index.php on line 5
+[06-May-2022 03:58:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/doerflk1/public_html/OfficeSupplyEmporium/account.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/account.php on line 38
+[06-May-2022 03:58:05 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/doerflk1/public_html/OfficeSupplyEmporium/account.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/doerflk1/public_html/OfficeSupplyEmporium/account.php on line 38

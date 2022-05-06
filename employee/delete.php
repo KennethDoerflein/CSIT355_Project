@@ -1,5 +1,5 @@
 <?php
-    //gets db connection info
+    //gets database connection info
     require_once '../scripts/connectToDatabase.php';
     //gets session info
     session_start();
@@ -26,7 +26,7 @@
         $_SESSION['loggedin'] = false;
         header('Location: ./login.php');
 
-        //closes db connection
+        //closes database connection
         $database->close();
         exit();
     }
@@ -37,6 +37,20 @@
             header("Location: ./login.php");
         }
     }
+    
+    ## Start - stop CUSTOMER from viewing page
+    $customerTest = "SELECT accountNumber FROM CUSTOMER WHERE accountNumber = '".$_SESSION['account']."'";
+    //gets info from database
+    $isCust = $database->query($customerTest);
+    $num_Cust = $isCust->num_rows;
+    if ($num_Cust > 0){
+        header('Location: ../homepage.php');
+
+        //closes database connection
+        $database->close();
+        exit();
+    }
+    ## End - stop CUSTOMER from viewing page
     
     
     //closes connection

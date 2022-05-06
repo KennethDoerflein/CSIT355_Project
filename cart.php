@@ -10,7 +10,7 @@
         $_SESSION['loggedin'] = false;
         header('Location: ./index.php');
 
-        //closes db connection
+        //closes database connection
         $database->close();
         exit();
     }
@@ -23,7 +23,19 @@
         }
     }
     
-    
+    ## Start - stop employee from viewing page
+    $employeeTest = "SELECT employeeID FROM EMPLOYEE WHERE employeeID = '".$_SESSION['account']."'";
+    //gets info from database
+    $isEMP = $database->query($employeeTest);
+    $num_EMP = $isEMP->num_rows;
+    if ($num_EMP > 0){
+        header('Location: ./employee/homepage.php');
+
+        //closes database connection
+        $database->close();
+        exit();
+    }
+    ## End - stop employee from viewing page
     
     if($_SESSION['addCart'] == 'added'){
         $notice = 'Item was added to your cart';

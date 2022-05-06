@@ -11,7 +11,7 @@
         $_SESSION['loggedin'] = false;
         header('Location: ../login.php');
 
-        //closes db connection
+        //closes database connection
         $database->close();
         exit();
     }
@@ -34,11 +34,19 @@
   $image=$_POST['image'];
   $productID = mt_rand(10000,90000);
 
-  if (!$name || !$category || !$price || !$manufacturer || !$description || !$quantity || !$image) {
+  if (!$name || !$category || !$price || !$manufacturer || !$description) {
      $_SESSION['insertProduct'] = 'missingInput';
         header('Location: ../insert.php');
         $database->close();
 	    exit();
+  }
+  
+  if(!$quantity){
+      $quantity = 0;
+  }
+  
+  if(!$image){
+      $image = "https://imgs.search.brave.com/XtNX8ObGl67KdwZ72QFp42JepchB7A6eghT3Bv_fT04/rs:fit:900:900:1/g:ce/aHR0cDovL3d3dy5p/bGx1bWluZXNzZW5z/Y2UuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDEyLzEyL0lt/YWdlLUNvbWluZy1T/b29uLVBsYWNlaG9s/ZGVyLnBuZw";
   }
 
   if (!get_magic_quotes_gpc()) {

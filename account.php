@@ -9,7 +9,7 @@
         $_SESSION['loggedin'] = false;
         header('Location: ./index.php');
 
-        //closes db connection
+        //closes database connection
         $database->close();
         exit();
     }
@@ -32,6 +32,19 @@
      $address = $account['address'];
      $phoneNumber = $account['phoneNumber'];
     
+    ## Start - stop employee from viewing page
+    $employeeTest = "SELECT employeeID FROM EMPLOYEE WHERE employeeID = '".$_SESSION['account']."'";
+    //gets info from database
+    $isEMP = $database->query($employeeTest);
+    $num_EMP = $isEMP->num_rows;
+    if ($num_EMP > 0){
+        header('Location: ./employee/account.php');
+
+        //closes database connection
+        $database->close();
+        exit();
+    }
+    ## End - stop employee from viewing page
     
     //closes connection
     $database->close();

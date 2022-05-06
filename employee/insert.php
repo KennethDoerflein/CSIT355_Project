@@ -1,5 +1,5 @@
 <?php
-    //gets db connection info
+    //gets database connection info
     require_once '../scripts/connectToDatabase.php';
     //gets session info
     session_start();
@@ -7,7 +7,7 @@
         $_SESSION['loggedin'] = false;
         header('Location: ./login.php');
 
-        //closes db connection
+        //closes database connection
         $database->close();
         exit();
     }
@@ -18,6 +18,20 @@
             header("Location: ./login.php");
         }
     }
+    
+    ## Start - stop CUSTOMER from viewing page
+    $customerTest = "SELECT accountNumber FROM CUSTOMER WHERE accountNumber = '".$_SESSION['account']."'";
+    //gets info from database
+    $isCust = $database->query($customerTest);
+    $num_Cust = $isCust->num_rows;
+    if ($num_Cust > 0){
+        header('Location: ../homepage.php');
+
+        //closes database connection
+        $database->close();
+        exit();
+    }
+    ## End - stop CUSTOMER from viewing page
     
     if($_SESSION['insertProduct'] == 'missingInput'){
         $notice = 'Something was missing. Please try again.';
@@ -106,7 +120,7 @@
 
                     <div><input type="text" name="quantity" id="quantity" placeholder="Product Quantity" required></div>
 
-                    <div><input type="text" name="image" id="image" placeholder="Product Image Link" required></div>
+                    <div><input type="text" name="image" id="image" placeholder="Product Image Link (Leave blank for coming soon image)"></div>
 
                     <input name="submit" type="submit" class="sButton" value="Add Product" id="login-submit">
                 </div>

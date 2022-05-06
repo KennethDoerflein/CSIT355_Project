@@ -11,7 +11,7 @@
         $_SESSION['loggedin'] = false;
         header('Location: ../login.php');
 
-        //closes db connection
+        //closes database connection
         $database->close();
         exit();
     }
