@@ -30,7 +30,7 @@
     if(!$search){
         $notice = 'No results, please try again.';
     }else{
-        $query = "SELECT * FROM PRODUCT WHERE name like '%".$search."%' OR description like '%".$search."%' OR manufacturer like '%".$search."%' ORDER BY category DESC";
+        $query = "SELECT * FROM PRODUCT WHERE name like '%".$search."%' OR description like '%".$search."%' OR manufacturer like '%".$search."%' OR category like '%".$search."%' ORDER BY category DESC";
         $products = $database->query($query);
         $numOfProducts = mysqli_num_rows($products);
         $currentProduct = $products->fetch_assoc();

@@ -66,8 +66,7 @@
 	    exit();
   }
 
-  $query = "insert into PRODUCT values
-            ('".$productID."', '".$name."', '".$category."', '".$price."','".$manufacturer."', '".$description."', '".$quantity."', '".$image."')";
+  $query = "insert into PRODUCT values ('".$productID."', '".$name."', '".$category."', '".$price."','".$manufacturer."', '".$description."', '".$quantity."', '".$image."')";
   $result = $database->query($query);
 
     if($result){

@@ -69,7 +69,7 @@
             }
         </style>
         <center>
-            <h1><center>Customer Register</center></h1>
+            <h1><center>Customer Registration</center></h1>
             <center><div style='color: red;'><?php echo $notice; ?></div></center>
             <center>Fill in your information below:</center>
             <form action='./scripts/registerAcct.php' method='post'>

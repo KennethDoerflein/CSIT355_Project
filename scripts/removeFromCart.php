@@ -47,7 +47,7 @@
         $database->close();
         exit();
     }else{
-        $removeFromCart = "DELETE FROM CART WHERE productID = '$productID' AND accountNUmber = '$acctNum'";
+        $removeFromCart = "DELETE FROM CART WHERE productID = '$productID' AND accountNumber = '$acctNum'";
     }
      $remove = $database->query($removeFromCart);
      
